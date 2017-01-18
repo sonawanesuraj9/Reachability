@@ -13,6 +13,7 @@
 		2CCAF7E11E2C9DF0009DBA26 /* Reachability_Practice.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2CCAF7DF1E2C9DEF009DBA26 /* Reachability_Practice.xcdatamodeld */; };
 		2CCAF7E31E2C9DF0009DBA26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CCAF7E21E2C9DF0009DBA26 /* Assets.xcassets */; };
 		2CCAF7E61E2C9DF0009DBA26 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CCAF7E41E2C9DF0009DBA26 /* LaunchScreen.storyboard */; };
+		2CCAF7F01E2C9E82009DBA26 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCAF7EF1E2C9E82009DBA26 /* Reachability.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,9 @@
 		2CCAF7E21E2C9DF0009DBA26 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2CCAF7E51E2C9DF0009DBA26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2CCAF7E71E2C9DF0009DBA26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2CCAF7EE1E2C9E82009DBA26 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		2CCAF7EF1E2C9E82009DBA26 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		2CCAF7F11E2C9E98009DBA26 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +60,9 @@
 		2CCAF7D71E2C9DEF009DBA26 /* Reachability_Practice */ = {
 			isa = PBXGroup;
 			children = (
+				2CCAF7ED1E2C9E82009DBA26 /* Reachability */,
 				2CCAF7D81E2C9DEF009DBA26 /* AppDelegate.swift */,
+				2CCAF7F11E2C9E98009DBA26 /* Bridging-Header.h */,
 				2CCAF7DA1E2C9DEF009DBA26 /* ViewController.swift */,
 				2CCAF7DC1E2C9DEF009DBA26 /* Main.storyboard */,
 				2CCAF7E21E2C9DF0009DBA26 /* Assets.xcassets */,
@@ -65,6 +71,15 @@
 				2CCAF7DF1E2C9DEF009DBA26 /* Reachability_Practice.xcdatamodeld */,
 			);
 			path = Reachability_Practice;
+			sourceTree = "<group>";
+		};
+		2CCAF7ED1E2C9E82009DBA26 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				2CCAF7EE1E2C9E82009DBA26 /* Reachability.h */,
+				2CCAF7EF1E2C9E82009DBA26 /* Reachability.m */,
+			);
+			path = Reachability;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,6 +155,7 @@
 			files = (
 				2CCAF7DB1E2C9DEF009DBA26 /* ViewController.swift in Sources */,
 				2CCAF7E11E2C9DF0009DBA26 /* Reachability_Practice.xcdatamodeld in Sources */,
+				2CCAF7F01E2C9E82009DBA26 /* Reachability.m in Sources */,
 				2CCAF7D91E2C9DEF009DBA26 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -257,6 +273,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.supraint.Reachability-Practice";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/pramodshirsath/Desktop/Reachability_Practice/Reachability_Practice/Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -268,6 +285,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.supraint.Reachability-Practice";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/pramodshirsath/Desktop/Reachability_Practice/Reachability_Practice/Bridging-Header.h";
 			};
 			name = Release;
 		};

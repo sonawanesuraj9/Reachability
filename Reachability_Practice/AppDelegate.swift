@@ -9,17 +9,90 @@
 import UIKit
 import CoreData
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var reachability:Reachability!;
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(AppDelegate.checkForReachability(_:)), name: kReachabilityChangedNotification, object: nil);
+        
+        self.reachability = Reachability.reachabilityForInternetConnection();
+        self.reachability.startNotifier();
+        
+    
+        //Network Check-ups
+        let remoteHostStatus = reachability.currentReachabilityStatus()
+        if (remoteHostStatus == NotReachable)
+        {
+            print("Not Reachable")
+            self.NotifyNetworkUnavailable()
+        }
+        else if (remoteHostStatus == ReachableViaWiFi)
+        {
+            print("Reachable via Wifi")
+            self.NotifyNetworkAvailable()
+        }
+        else
+        {
+            self.NotifyNetworkAvailable()
+            
+            print("Reachable")
+        }
+        
+        
         return true
     }
 
+    /**
+     Reachability State Observ Function
+     
+     - parameter application: notification
+     */
+    
+    func checkForReachability(notification:NSNotification)
+    {
+        // Remove the next two lines of code. You cannot instantiate the object
+        // you want to receive notifications from inside of the notification
+        // handler that is meant for the notifications it emits.
+        
+        //var networkReachability = Reachability.reachabilityForInternetConnection()
+        //networkReachability.startNotifier()
+        
+        let networkReachability = notification.object as! Reachability;
+        let remoteHostStatus = networkReachability.currentReachabilityStatus()
+        
+        if (remoteHostStatus == NotReachable)
+        {
+            print("Not Reachable")
+            self.NotifyNetworkUnavailable()
+        }
+        else if (remoteHostStatus == ReachableViaWiFi)
+        {
+            print("Reachable via Wifi")
+           self.NotifyNetworkAvailable()
+        }
+        else
+        {
+            self.NotifyNetworkAvailable()
+          
+            print("Reachable")
+        }
+    }
+    
+    func NotifyNetworkAvailable(){
+          NSNotificationCenter.defaultCenter().postNotificationName("internetConnected", object: nil)
+    }
+    
+    func NotifyNetworkUnavailable(){
+        NSNotificationCenter.defaultCenter().postNotificationName("internetNotAvailable", object: nil)
+    }
+    
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
